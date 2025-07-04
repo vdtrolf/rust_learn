@@ -39,4 +39,19 @@ fn main() {
     let (x1, x2, x3) = tupl;
     println!("Tupl extract {}, {}, {}", x1,x2,x3);
 
+    // Calling a function
+    test_fn("Hello function", x2);  // The type of the arguments must correspond
+
+    // Getting a value from a function
+    let ret = test_ret(x2);  // The type of the arguments must correspond
+    println!("It returns {:?}",ret);
+
+}
+
+fn test_fn(s: &str, x:u8) {
+    println!("In test: {} {x}", s );
+}
+
+fn test_ret(x:u8) -> u8 {
+    return x * 2;
 }
