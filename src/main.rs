@@ -30,7 +30,7 @@ fn main() {
     let vec = vec![1,2,3];
     let vec_2 : Vec<i16> = vec![-1,2,4];
     let elem = vec[1];
-    println!("Ans a vector: {:?} : {elem} : {}", vec, vec_2[0]);
+    println!("And a vector: {:?} : {elem} : {}", vec, vec_2[0]);
 
     // Tuples
     let tupl = ("Test",23,11.0);
@@ -44,14 +44,35 @@ fn main() {
 
     // Getting a value from a function
     let ret = test_ret(x2);  // The type of the arguments must correspond
-    println!("It returns {:?}",ret);
+    println!("Single ret returns {:?}",ret);
+
+    // Getting multiple values from a function
+    let (x1,x2,x3) = test_ret_multi(x2);  // The type of the arguments must correspond
+    println!("Multi ret returns ({x1} {x2} {x3})");
+
+    // This is a code block
+    let full_name = {
+        let first_name = "John"; // Only visible within the context of the code block 
+        let last_name = "Doe";   // Same
+        format!("{first_name} {last_name}") // Last expression without semicolon = result of the code block
+    };
+
+    println!("The code block produced : {full_name}");
 
 }
 
+// Simple function not returning a value
 fn test_fn(s: &str, x:u8) {
     println!("In test: {} {x}", s );
 }
 
+// Simple function returning a value
 fn test_ret(x:u8) -> u8 {
-    return x * 2;
+    let answer : u8 = x * 2;
+    answer // The alast expression witout a semicolon is the return value
+}
+
+// Function returning a Tuple
+fn test_ret_multi(x:u8) -> (u8,u8,u8) { 
+    (x,x*2,x*4)
 }
