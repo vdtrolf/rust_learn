@@ -8,11 +8,11 @@ fn main() {
     
     println!("In the main function");
 
-    let current_part = 2;
-    if current_part == 1 {
-        first_part() 
-    } else if current_part == 2 {
-        second_part()
+    let current_part = 3;
+    match current_part {
+        1 => first_part(), 
+        2 => second_part(),
+        _ => println!("No idea"),
     }
 
 }
