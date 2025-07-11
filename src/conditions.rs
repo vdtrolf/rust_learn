@@ -1,8 +1,8 @@
 // Function returning a Tuple
 
-pub fn second_part() { 
-    println!("In the second part");
-    println!("==================");
+pub fn learn_conditions() { 
+    println!("In part 3: conditions");
+    println!("=====================");
 
     // IF
 
@@ -18,6 +18,13 @@ pub fn second_part() {
         }
     };
     println!("And the winner of the 'if' test is: {}", a_str);
+
+    // IF on a boolean
+
+    let b = true;
+    if !b { 
+        println!("This will never come on the screen")
+    }
 
     // MATCH
 

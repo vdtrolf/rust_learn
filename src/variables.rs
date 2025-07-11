@@ -1,10 +1,9 @@
 
-pub fn first_part() {
+pub fn learn_variables() {
     
-    println!("In the first part");
-    println!("=================");
+    println!("In part 1: variables");
+    println!("====================");
 
-    
     // Static (referenced to)
     static PI_VALUE: f32 = 3.14162758;
 
@@ -45,17 +44,6 @@ pub fn first_part() {
     let (x1, x2, x3) = tupl;
     println!("Tupl extract {}, {}, {}", x1,x2,x3);
 
-    // Calling a function
-    test_fn("Hello function", x2);  // The type of the arguments must correspond
-
-    // Getting a value from a function
-    let ret = test_ret(x2);  // The type of the arguments must correspond
-    println!("Single ret returns {:?}",ret);
-
-    // Getting multiple values from a function
-    let (x1,x2,x3) = test_ret_multi(x2);  // The type of the arguments must correspond
-    println!("Multi ret returns ({x1} {x2} {x3})");
-
     // This is a code block
     let full_name = {
         let first_name = "John"; // Only visible within the context of the code block 
@@ -65,20 +53,4 @@ pub fn first_part() {
 
     println!("The code block produced : {full_name}");
 
-}
-
-// Simple function not returning a value
-fn test_fn(s: &str, x:u8) {
-    println!("In test: {} {x}", s );
-}
-
-// Simple function returning a value
-fn test_ret(x:u8) -> u8 {
-    let answer : u8 = x * 2;
-    answer // The alast expression witout a semicolon is the return value
-}
-
-// Function returning a Tuple
-fn test_ret_multi(x:u8) -> (u8,u8,u8) { 
-    (x,x*2,x*4)
 }

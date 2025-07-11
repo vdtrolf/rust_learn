@@ -1,17 +1,24 @@
-mod cond;
-mod basics;
+mod variables;
+mod conditions;
+mod functions;
+mod controls;
 
-use basics::first_part;
-use cond::second_part;
+use variables::learn_variables;
+use functions::learn_functions;
+use conditions::learn_conditions;
+use controls::learn_controls;
 
 fn main() {
     
-    println!("In the main function");
+    println!("LEARN RUST");
+    println!("");
 
-    let current_part = 3;
+    let current_part = 4;
     match current_part {
-        1 => first_part(), 
-        2 => second_part(),
+        1 => learn_variables(), 
+        2 => learn_functions(),
+        3 => learn_conditions(),
+        4 => learn_controls(),
         _ => println!("No idea"),
     }
 
