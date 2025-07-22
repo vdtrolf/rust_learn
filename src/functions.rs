@@ -1,7 +1,7 @@
 pub fn learn_functions() {
     
-    println!("In part 2: functions");
-    println!("====================");
+    println!("Part 2: functions");
+    println!("=================");
 
     // Tuples
     let x = 23;

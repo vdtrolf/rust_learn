@@ -1,8 +1,8 @@
 // Function returning a Tuple
 
 pub fn learn_conditions() { 
-    println!("In part 3: conditions");
-    println!("=====================");
+    println!("Part 3: conditions");
+    println!("==================");
 
     // IF
 

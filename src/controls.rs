@@ -1,6 +1,6 @@
 pub fn learn_controls() {
-    println!("In part 4: controls");
-    println!("===================");
+    println!("Part 4: controls");
+    println!("================");
 
     // SIMPLE LOOP
 

@@ -1,9 +1,8 @@
 use std::io;
-// use std::io::*;
 
 pub fn learn_outputs() {
-    println!("In part 5: outputs");
-    println!("==================");
+    println!("Part 5: outputs");
+    println!("===============");
 
     // To print on the same line (btw, this is a simple comment)
 

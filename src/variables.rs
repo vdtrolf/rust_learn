@@ -1,8 +1,8 @@
 
 pub fn learn_variables() {
     
-    println!("In part 1: variables");
-    println!("====================");
+    println!("Part 1: variables");
+    println!("=================");
 
     // Static (referenced to)
     static PI_VALUE: f32 = 3.14162758;
