@@ -6,6 +6,7 @@ mod functions;
 mod controls;
 mod outputs;
 mod ownership;
+mod borrowing;
 
 use variables::learn_variables;
 use functions::learn_functions;
@@ -13,11 +14,12 @@ use conditions::learn_conditions;
 use controls::learn_controls;
 use outputs::learn_outputs;
 use ownership::learn_ownership;
+use borrowing::learn_borrowing;
 
 fn main() {
     
     println!("LEARN RUST");
-    println!("Which module (1..6) ?");
+    println!("Which module (1..7) ?");
 
     let mut input: String = String::new();
     
@@ -32,6 +34,7 @@ fn main() {
         "4" => learn_controls(),
         "5" => learn_outputs(),
         "6" => learn_ownership(),
+        "7" => learn_borrowing(),
         _ => println!("No idea"),
     }
 

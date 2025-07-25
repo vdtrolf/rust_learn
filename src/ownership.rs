@@ -109,6 +109,15 @@ pub fn learn_ownership() {
     let vec_5 = takes_and_gives_ownership(vec_4);
     println!("vec 5 is: {:?}", vec_5);
 
+    // PRIMITIVE OWNERSHIP IN FUNCTIONS
+    // ================================
+    // When called with a primitive, a function always receive a copy of that primitive value
+    // Which means it does not take over the ownership
+
+    let x = 10;
+    primitive_function(x);
+    println!("In main, x is: {x}");
+
 }
 
 fn takes_ownership(vec: Vec<i32>) {
@@ -122,4 +131,8 @@ fn gives_ownership() -> Vec<i32> {
 fn takes_and_gives_ownership(mut vec: Vec<i32>) -> Vec<i32> {
     vec.push(13);
     vec
+}
+
+fn primitive_function(y: i32) {
+    println!("In the function, y is: {y}");
 }
