@@ -50,4 +50,6 @@ pub fn learn_borrowing() {
 
     // this is possible because the scope of refa & refb ended before the scope of refc
 
+    // In functions:
+
 }
