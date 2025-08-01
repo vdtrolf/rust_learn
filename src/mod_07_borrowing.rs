@@ -50,6 +50,44 @@ pub fn learn_borrowing() {
 
     // this is possible because the scope of refa & refb ended before the scope of refc
 
-    // In functions:
+    // In functions: immutable
 
+    let vec_6 = vec![4, 5, 6];                    
+    let refd = &vec_6;                               
+    borrows_vec(refd);                   
+    println!("vec_6: {:?}", vec_6);   
+
+    // In functions: mutable - takes and give
+
+    let vec_7 = vec![21, 22, 23];                    
+    let refe = &vec_7;                               
+    borrows_vec(refe);    
+    // add_value(vec_7);               // Generates an error because add_values doesnt borrow
+    let vec_7 = add_value(vec_7);      // Works because it takes an gives, renewing ownership
+    println!("vec_7: {:?}", vec_7);   
+
+    // In functions: mutable - borrow
+
+    let mut vec_8 = vec![18, 19, 20];                    
+    let refg = &vec_8;                               
+    borrows_vec(refg);    
+    add_borrowed_value(&mut vec_8);               
+    println!("vec_8: {:?}", vec_8);   
+
+    // NB returning a reference to a value when the ownership has been passed to the function
+    // is a bad idea, since the value will be cleared when the owning function will be cleared 
+
+}
+
+fn borrows_vec(vec: &Vec<i32>) {
+    println!("In the borrow function: {:?}", vec);
+}
+
+fn add_value(mut vec: Vec<i32>) -> Vec<i32> {
+    vec.push(24);
+    vec
+}
+
+fn add_borrowed_value(vec: &mut Vec<i32>) {
+    vec.push(21);
 }
