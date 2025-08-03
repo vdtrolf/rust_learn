@@ -3,9 +3,16 @@ pub fn learn_dereferencing() {
     println!("Part 8: dereferencing");
     println!("=====================");
 
-    // Borrowing means: referencing to a value without taking ownership
-    // for example when it is only necessary to read the data
-    // Borrowing is more efficient than ownership, because values in the heap are not affected
+    // Dereferencing means: 
+    // for example 
+    //
+    
+    let mut some_data = 42;
+    let ref1 = &mut some_data;
+    let deref_copy = *ref1;
+    *ref1 = 13;
+    println!("some_data is: {some_data}, deref_copy is: {deref_copy}");
+
 
 
 }

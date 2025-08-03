@@ -18,6 +18,9 @@ use mod_06_ownership::learn_ownership;
 use mod_07_borrowing::learn_borrowing;
 use mod_08_dereferencing::learn_dereferencing;
 
+
+// https://codezup.com/rust-memory-management-guide/
+
 fn main() {
     
     println!("LEARN RUST");
