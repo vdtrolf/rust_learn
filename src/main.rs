@@ -8,6 +8,7 @@ mod mod_05_outputs;
 mod mod_06_ownership;
 mod mod_07_borrowing;
 mod mod_08_dereferencing;
+mod mod_09_struct;
 
 use mod_01_variables::learn_variables;
 use mod_02_functions::learn_functions;
@@ -17,6 +18,7 @@ use mod_05_outputs::learn_outputs;
 use mod_06_ownership::learn_ownership;
 use mod_07_borrowing::learn_borrowing;
 use mod_08_dereferencing::learn_dereferencing;
+use mod_09_struct::learn_struct;
 
 
 // https://codezup.com/rust-memory-management-guide/
@@ -24,7 +26,7 @@ use mod_08_dereferencing::learn_dereferencing;
 fn main() {
     
     println!("LEARN RUST");
-    println!("Which module (1..8) ?");
+    println!("Which module (1..9) ?");
 
     let mut input: String = String::new();
     
@@ -41,6 +43,7 @@ fn main() {
         "6" => learn_ownership(),
         "7" => learn_borrowing(),
         "8" => learn_dereferencing(),
+        "9" => learn_struct(),
         _ => println!("No idea"),
     }
 
