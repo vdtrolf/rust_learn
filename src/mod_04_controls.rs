@@ -1,9 +1,14 @@
 pub fn learn_controls() {
-    println!("Part 4: controls");
-    println!("================");
+  println!("Part 4: controls");
+  println!("================");
+  println!("loop {{ if b {{ break; }} }};");
+  println!("let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true");
+  println!("let v = vec![]; for i in v {{...}};");
+  println!("let mut z=0; while z < 4 {{...}};");
+}
 
+pub fn test_controls() {
     // SIMPLE LOOP
-
     let mut x: u8 = 1;
     loop {
         println!("{} - In a outer loop", x);

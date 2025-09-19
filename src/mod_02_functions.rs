@@ -1,8 +1,17 @@
 pub fn learn_functions() {
     
-    println!("Part 2: functions");
-    println!("=================");
+  println!("Part 2: functions");
+  println!("=================");
+  println!("simple : a_fn(\"tata\",1);");
+  println!("       : fn a_fn(s: &str, x:u8) {{}};");
+  println!("paramn : let ret = a_fn(2);");
+  println!("       : fn a_fn(x:u8) -> u8 {{x*2}}; // last exp without ;");
+  println!("multi  : let (x1,x2) = a_fn(2);");
+  println!("       : fn a_fn(x:u8) -> (u8,u8) {{(x*2, x*4)}}; // any tuple");
 
+}
+
+pub fn test_functions() {
     // Tuples
     let x = 23;
 
