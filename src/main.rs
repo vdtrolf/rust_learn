@@ -19,6 +19,7 @@ use mod_03_conditions::test_conditions;
 use mod_04_controls::learn_controls;
 use mod_04_controls::test_controls;
 use mod_05_outputs::learn_outputs;
+use mod_05_outputs::test_outputs;
 use mod_06_ownership::learn_ownership;
 use mod_07_borrowing::learn_borrowing;
 use mod_08_dereferencing::learn_dereferencing;
@@ -57,6 +58,7 @@ fn main() {
         "2" => test_functions(),
         "3" => test_conditions(),
         "4" => test_controls(),
+        "5" => test_outputs(),
         _ => println!("nope"),
       }
             

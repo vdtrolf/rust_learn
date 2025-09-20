@@ -3,7 +3,12 @@ use std::io;
 pub fn learn_outputs() {
     println!("Part 5: outputs");
     println!("===============");
+    println!("tab: \\t quote: \\\" endline: \\n carriage return: \\r");
+    println!("positional: println!(\"{{}} {{}}\",val1,val2);");
+    println!("named     : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);");
+}
 
+pub fn test_outputs() {
     // To print on the same line (btw, this is a simple comment)
 
     print!("Start...");
