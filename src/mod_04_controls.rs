@@ -1,10 +1,10 @@
 pub fn learn_controls() {
-  println!("Part 4: controls");
-  println!("================");
-  println!("loop {{ if b {{ break; }} }};");
-  println!("let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true");
-  println!("let v = vec![]; for i in v {{...}};");
-  println!("let mut z=0; while z < 4 {{...}};");
+    println!("Controls (4)");
+    println!("------------");
+    println!("loop {{ if b {{ break; }} }};");
+    println!("let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true");
+    println!("let v = vec![]; for i in v {{...}};");
+    println!("let mut z=0; while z < 4 {{...}};");
 }
 
 pub fn test_controls() {
@@ -37,7 +37,7 @@ pub fn test_controls() {
     println!("It ran nearly {result} times!");
 
     // ITERATING IN VALUES
-    let a_vec = vec![2,4,8];
+    let a_vec = vec![2, 4, 8];
     for i in a_vec {
         println!("Next occurence in vector : {i}");
     }
@@ -47,6 +47,6 @@ pub fn test_controls() {
     while z < 4 {
         println!("Z is now: {z}");
         z += 1;
-    };
+    }
     println!("Z is finally: {z}");
 }

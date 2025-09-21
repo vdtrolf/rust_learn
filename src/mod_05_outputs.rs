@@ -1,8 +1,8 @@
 use std::io;
 
 pub fn learn_outputs() {
-    println!("Part 5: outputs");
-    println!("===============");
+    println!("Outputs (5)");
+    println!("-----------");
     println!("tab: \\t quote: \\\" endline: \\n carriage return: \\r");
     println!("positional: println!(\"{{}} {{}}\",val1,val2);");
     println!("named     : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);");
@@ -21,12 +21,12 @@ pub fn test_outputs() {
     print!("First try \rBut rather this\n");
 
     /*
-    * Rust can also use positional arguments {}
-    * and named arguments (btw this is a multi-line comment)
-    */ 
+     * Rust can also use positional arguments {}
+     * and named arguments (btw this is a multi-line comment)
+     */
 
-    println!("Positional: {} {}","ttt",23);
-    println!("Named: {arg1} {arg2}",arg1="uuu",arg2=34);
+    println!("Positional: {} {}", "ttt", 23);
+    println!("Named: {arg1} {arg2}", arg1 = "uuu", arg2 = 34);
 
     // Input example
 
@@ -38,5 +38,4 @@ pub fn test_outputs() {
         .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
 
     println!("You entered: {}", input);
-
 }
