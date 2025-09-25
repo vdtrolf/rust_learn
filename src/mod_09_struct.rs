@@ -77,5 +77,5 @@ pub fn test_struct() {
     // It is also possible to use tupple structs like Point3d(i32, i32, i32);
 
     let a_point = Point3d(1, 2, 3);
-    println!("Second point is: {}", a_point.2);
+    println!("Points are: {} {} {}", a_point.0, a_point.1, a_point.2);
 }
