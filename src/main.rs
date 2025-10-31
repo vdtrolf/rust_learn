@@ -36,7 +36,7 @@ use mod_10_implementation::test_implementation;
 
 fn main() {
     println!("LEARN RUST");
-    println!("Which module (1 to 9) ?");
+    println!("Which module (1 to 10) ?");
 
     let mut input: String = String::new();
     let mut last: String = String::new();
