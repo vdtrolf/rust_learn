@@ -1,6 +1,7 @@
+use colored::Colorize;
+
 pub fn learn_functions() {
-    println!("Functions (2)");
-    println!("-------------");
+    println!("{}", "Functions (2)".red().bold().underline());
     println!("simple : a_fn(\"tata\",1);");
     println!("       : fn a_fn(s: &str, x:u8) {{}};");
     println!("paramn : let ret = a_fn(2);");

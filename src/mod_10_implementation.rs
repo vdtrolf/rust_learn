@@ -1,6 +1,7 @@
+use colored::Colorize;
+
 pub fn learn_implementation() {
-    println!("Implementation (10)");
-    println!("-------------------");
+    println!("{}", "Implementation (10)".red().bold().underline());
     println!("An implementation block allows to reference to a certain type, such as a struct.");
     println!("A function in such a block is called a method and doesn't expect any argument (self is implicit)");
     println!("  | stuct AStruct {{ f1:u8, f2:u8}};");

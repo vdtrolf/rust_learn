@@ -1,6 +1,7 @@
+use colored::Colorize;
+
 pub fn learn_variables() {
-    println!("Variables (1)");
-    println!("-------------");
+    println!("{}", "Variables (1)".red().bold().underline());
     println!("static: AAA:f32 = 3.45");
     println!("const : BBB:bool = true;");
     println!("var   : let (mut) (_)x:u8 = 11;");

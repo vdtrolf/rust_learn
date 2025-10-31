@@ -1,6 +1,7 @@
+use colored::Colorize;
+
 pub fn learn_ownership() {
-    println!("Ownership (6)");
-    println!("-------------");
+    println!("{}", "Ownership (6)".red().bold().underline());
     println!("The rules of ownership are:");
     println!("1. Each value has a variable that serves as its “owner.”");
     println!("2. A value can have only one owner at a time.");

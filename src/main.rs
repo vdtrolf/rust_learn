@@ -44,9 +44,9 @@ fn main() {
     while input.trim() != "0" {
         input = String::new();
         io::stdin() // Get the standard input stream
-            .read_line(&mut input) // The read_line function reads data until it reaches a '\n' character
+            .read_line(&mut input) // The rea read_line function reads data until it reaches a '\n' character
             .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
-
+        println!("\r");
         match input.trim() {
             "0" => println!("exit"),
             "1" => learn_variables(),

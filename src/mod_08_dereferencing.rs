@@ -1,6 +1,7 @@
+use colored::Colorize;
+
 pub fn learn_dereferencing() {
-    println!("Dereferencing (8)");
-    println!("-----------------");
+    println!("{}", "Dereferencing (8)".red().bold().underline());
     println!("Dereferencing means: accesing a variable value pointed by a reference or pointer");
     println!("This is usefull after borrowing a a reference, and it is necessary to manipulate");
     println!("or access the underlying data. Works for stack variables, not heap values");

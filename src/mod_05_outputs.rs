@@ -1,8 +1,8 @@
+use colored::Colorize;
 use std::io;
 
 pub fn learn_outputs() {
-    println!("Outputs (5)");
-    println!("-----------");
+    println!("{}", "Outputs (5)".red().bold().underline());
     println!("tab: \\t quote: \\\" endline: \\n carriage return: \\r");
     println!("positional: println!(\"{{}} {{}}\",val1,val2);");
     println!("named     : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);");

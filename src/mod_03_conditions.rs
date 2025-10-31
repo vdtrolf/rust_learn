@@ -1,8 +1,9 @@
+use colored::Colorize;
+
 // Function returning a Tuple
 
 pub fn learn_conditions() {
-    println!("Conditions (3)");
-    println!("--------------");
+    println!("{}", "Conditions (3)".red().bold().underline());
     println!("if exp {{...}} else if exp {{...}} else {{...}}; | exp: x>1");
     println!("let b:bool=true;if b {{...}};");
     println!(

@@ -1,3 +1,5 @@
+use colored::Colorize;
+
 struct Animal {
     name: String,
     age: u16,
@@ -18,8 +20,7 @@ struct Human {
 struct Point3d(i32, i32, i32);
 
 pub fn learn_struct() {
-    println!("Struct (9)");
-    println!("----------");
+    println!("{}", "Struct (9)".red().bold().underline());
     println!("Classical structs: struct Astruct {{ f1 : type, f2 : type, f3, type}}");
     println!(
         "  | let (mut) A = Astruct {{ f1 : val1, f2 : val2, f3: val3 }}; println!(\"{{}}\",A.f2);"

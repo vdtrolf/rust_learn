@@ -1,6 +1,7 @@
+use colored::Colorize;
+
 pub fn learn_controls() {
-    println!("Controls (4)");
-    println!("------------");
+    println!("{}", "Controls (4)".red().bold().underline());
     println!("loop {{ if b {{ break; }} }};");
     println!("let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true");
     println!("let v = vec![]; for i in v {{...}};");
