@@ -2,13 +2,29 @@ use colored::Colorize;
 
 pub fn learn_variables() {
     println!("{}", "Variables (1)".red().bold().underline());
-    println!("static: AAA:f32 = 3.45");
-    println!("const : BBB:bool = true;");
-    println!("var   : let (mut) (_)x:u8 = 11;");
-    println!("Types : u.. i.. f.. char bool \"\"");
-    println!("Array : let an_array:[u8,3]=[1,2,4]; | an_array[1];");
-    println!("Vector: let vec = vec![] or let vec = Vec<i16> = vec![-1,2,5,6] | vec[1];");
-    println!("Tuples: let tup = ('a',2,3.24) | tup.1 or let (x1,x2,x3) = tup");
+    println!("{}{}", "static".cyan().bold(), " : AAA:f32 = 3.45");
+    println!("{}{}", "const".cyan().bold(), "  : BBB:bool = true;");
+    println!("{}{}", "var".cyan().bold(), "    : let (mut) (_)x:u8 = 11;");
+    println!(
+        "{}{}",
+        "Types".cyan().bold(),
+        "  : u.. i.. f.. char bool \"\""
+    );
+    println!(
+        "{}{}",
+        "Array".cyan().bold(),
+        "  : let an_array:[u8,3]=[1,2,4]; | an_array[1];"
+    );
+    println!(
+        "{}{}",
+        "Vector".cyan().bold(),
+        " : let vec = vec![] or let vec = Vec<i16> = vec![-1,2,5,6] | vec[1];"
+    );
+    println!(
+        "{}{}",
+        "Tuples".cyan().bold(),
+        " : let tup = ('a',2,3.24) | tup.1 or let (x1,x2,x3) = tup"
+    );
     println!("");
 }
 

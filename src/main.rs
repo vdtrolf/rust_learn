@@ -41,14 +41,16 @@ fn main() {
     let mut input: String = String::new();
     let mut last: String = String::new();
 
-    while input.trim() != "0" {
+    let n = vec!["0", "q", "Q"];
+
+    while !n.contains(input.trim()) {
         input = String::new();
         io::stdin() // Get the standard input stream
             .read_line(&mut input) // The rea read_line function reads data until it reaches a '\n' character
             .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
         println!("\r");
         match input.trim() {
-            "0" => println!("exit"),
+            "0" | "q" | "Q" => println!("exit"),
             "1" => learn_variables(),
             "2" => learn_functions(),
             "3" => learn_conditions(),

@@ -2,11 +2,11 @@ use colored::Colorize;
 
 pub fn learn_functions() {
     println!("{}", "Functions (2)".red().bold().underline());
-    println!("simple : a_fn(\"tata\",1);");
-    println!("       : fn a_fn(s: &str, x:u8) {{}};");
-    println!("paramn : let ret = a_fn(2);");
+    println!("{}{}", "simple".cyan().bold(), " : a_fn(\"tata\",1);");
+    println!("       : fn a_fn(s: &str, x:u8) {{...}};");
+    println!("{}{}", "param".cyan().bold(), "  : let ret = a_fn(2);");
     println!("       : fn a_fn(x:u8) -> u8 {{x*2}}; // last exp without ;");
-    println!("multi  : let (x1,x2) = a_fn(2);");
+    println!("{}{}", "multi".cyan().bold(), "  : let (x1,x2) = a_fn(2);");
     println!("       : fn a_fn(x:u8) -> (u8,u8) {{(x*2, x*4)}}; // any tuple");
 }
 
