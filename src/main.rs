@@ -38,19 +38,19 @@ fn main() {
     println!("LEARN RUST");
     println!("Which module (1 to 10) ?");
 
-    let mut input: String = String::new();
+    //    let mut input: String = String::new();
     let mut last: String = String::new();
 
-    let n = vec!["0", "q", "Q"];
+    // let n = vec!["0", "q", "Q"];
 
-    while !n.contains(input.trim()) {
-        input = String::new();
+    loop {
+        let mut input: String = String::new();
         io::stdin() // Get the standard input stream
             .read_line(&mut input) // The rea read_line function reads data until it reaches a '\n' character
             .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
-        println!("\r");
+        print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
         match input.trim() {
-            "0" | "q" | "Q" => println!("exit"),
+            "0" | "q" | "Q" => break,
             "1" => learn_variables(),
             "2" => learn_functions(),
             "3" => learn_conditions(),
