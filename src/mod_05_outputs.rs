@@ -1,23 +1,28 @@
 use colored::Colorize;
 use std::io;
 
-pub fn learn_outputs() {
-    println!("{}", "Outputs (5)".red().bold().underline());
-    println!(
-        "{}{}",
-        "escape".cyan().bold(),
-        "     : tab: \\t quote: \\\" endline: \\n carriage return: \\r"
-    );
-    println!(
-        "{}{}",
-        "positional".cyan().bold(),
-        " : println!(\"{{}} {{}}\",val1,val2);"
-    );
-    println!(
-        "{}{}",
-        "named".cyan().bold(),
-        "      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);"
-    );
+pub fn learn_outputs(show_all: bool) {
+    let title = " 5-Outputs";
+    if show_all {
+        println!("{}", title.trim().red().bold().underline());
+        println!(
+            "{}{}",
+            "escape".cyan().bold(),
+            "     : tab: \\t quote: \\\" endline: \\n carriage return: \\r"
+        );
+        println!(
+            "{}{}",
+            "positional".cyan().bold(),
+            " : println!(\"{{}} {{}}\",val1,val2);"
+        );
+        println!(
+            "{}{}",
+            "named".cyan().bold(),
+            "      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);"
+        );
+    } else {
+        println!("{}", title);
+    }
 }
 
 pub fn test_outputs() {

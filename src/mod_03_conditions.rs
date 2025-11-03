@@ -2,15 +2,20 @@ use colored::Colorize;
 
 // Function returning a Tuple
 
-pub fn learn_conditions() {
-    println!("{}", "Conditions (3)".red().bold().underline());
-    println!("if exp {{...}} else if exp {{...}} else {{...}}; | exp: x>1");
-    println!("let b:bool=true;if b {{...}};");
-    println!(
-        "match x {{1 => doit(), 2 => dotwice(), _ => doother(),}}; \\ watch out for the commas"
-    );
-    println!("mat9ch x {{ 2 | 4 | 6 => doit(), 0.0 .. 2.0 => doexcl(), 2.0 ..= 3.0 => doincl()}}, _ => iets(),}};");
-    println!("let b = match x {{ 1 | 3 => \"un\", 2 | 4 => \"ev\",}};");
+pub fn learn_conditions(show_all: bool) {
+    let title = " 3-Conditions";
+    if show_all {
+        println!("{}", title.trim().red().bold().underline());
+        println!("if exp {{...}} else if exp {{...}} else {{...}}; | exp: x>1");
+        println!("let b:bool=true;if b {{...}};");
+        println!(
+            "match x {{1 => doit(), 2 => dotwice(), _ => doother(),}}; \\ watch out for the commas"
+        );
+        println!("mat9ch x {{ 2 | 4 | 6 => doit(), 0.0 .. 2.0 => doexcl(), 2.0 ..= 3.0 => doincl()}}, _ => iets(),}};");
+        println!("let b = match x {{ 1 | 3 => \"un\", 2 | 4 => \"ev\",}};");
+    } else {
+        println!("{}", title);
+    }
 }
 
 pub fn test_conditions() {

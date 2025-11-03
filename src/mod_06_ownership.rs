@@ -1,21 +1,26 @@
 use colored::Colorize;
 
-pub fn learn_ownership() {
-    println!("{}", "Ownership (6)".red().bold().underline());
-    println!("The rules of ownership are:");
-    println!("1. Each value has a variable that serves as its “owner.”");
-    println!("2. A value can have only one owner at a time.");
-    println!("3. If an owner goes out of scope, the value is cleaned up.");
-    println!("");
-    println!("Variable definitions are in the stack, while the values are in the heap");
-    println!("So: let s1 = String::from(\"hello\"); let _s2 = s1; println(\"{{}}\",s1); // Error: s1 doesn't reference anything anymore");
-    println!("To preserve s1, it possible to clone it: let _s2 = s1.clone(); ");
-    println!("Since variables only lives in their scope, ownership is lost out of the scope");
-    println!("So: let s1 = String::from(\"hello\"); {{let _s2 = s1}}; println(\"{{}}\",_s2); // Error: _s2 only lives in the inner scope");
-    println!("For primitives (i,u,f,bool,char) the value is also in the stack");
-    println!(
+pub fn learn_ownership(show_all: bool) {
+    let title = " 6-Ownership";
+    if show_all {
+        println!("{}", title.trim().red().bold().underline());
+        println!("The rules of ownership are:");
+        println!("1. Each value has a variable that serves as its “owner.”");
+        println!("2. A value can have only one owner at a time.");
+        println!("3. If an owner goes out of scope, the value is cleaned up.");
+        println!("");
+        println!("Variable definitions are in the stack, while the values are in the heap");
+        println!("So: let s1 = String::from(\"hello\"); let _s2 = s1; println(\"{{}}\",s1); // Error: s1 doesn't reference anything anymore");
+        println!("To preserve s1, it possible to clone it: let _s2 = s1.clone(); ");
+        println!("Since variables only lives in their scope, ownership is lost out of the scope");
+        println!("So: let s1 = String::from(\"hello\"); {{let _s2 = s1}}; println(\"{{}}\",_s2); // Error: _s2 only lives in the inner scope");
+        println!("For primitives (i,u,f,bool,char) the value is also in the stack");
+        println!(
         "So: let x1: u8 = 2; let _x2 = x1; println(\"{{}}\",x1); // Works:  _x2 is a copy of x1"
     );
+    } else {
+        println!("{}", title);
+    }
 }
 
 pub fn test_ownership() {

@@ -1,14 +1,23 @@
 use colored::Colorize;
 
-pub fn learn_dereferencing() {
-    println!("{}", "Dereferencing (8)".red().bold().underline());
-    println!("Dereferencing means: accesing a variable value pointed by a reference or pointer");
-    println!("This is usefull after borrowing a a reference, and it is necessary to manipulate");
-    println!("or access the underlying data. Works for stack variables, not heap values");
-    println!("  let mut x = 42;");
-    println!("  let ref1 = &mut x; // mutable reference");
-    println!("  let deref_copy = *ref1; // creates a copy of the value");
-    println!("  *ref1 = 13;  // x = 13 and deref_copy = 42");
+pub fn learn_dereferencing(show_all: bool) {
+    let title = " 8-Dereferencing";
+    if show_all {
+        println!("{}", title.trim().red().bold().underline());
+        println!(
+            "Dereferencing means: accesing a variable value pointed by a reference or pointer"
+        );
+        println!(
+            "This is usefull after borrowing a a reference, and it is necessary to manipulate"
+        );
+        println!("or access the underlying data. Works for stack variables, not heap values");
+        println!("  let mut x = 42;");
+        println!("  let ref1 = &mut x; // mutable reference");
+        println!("  let deref_copy = *ref1; // creates a copy of the value");
+        println!("  *ref1 = 13;  // x = 13 and deref_copy = 42");
+    } else {
+        println!("{}", title);
+    }
 }
 
 pub fn test_dereferencing() {

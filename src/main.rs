@@ -1,3 +1,4 @@
+use colored::Colorize;
 use std::io;
 
 mod mod_01_variables;
@@ -35,8 +36,8 @@ use mod_10_implementation::test_implementation;
 // https://codezup.com/rust-memory-management-guide/
 
 fn main() {
-    println!("LEARN RUST");
-    println!("Which module (1 to 10) ?");
+    print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+    print_index();
 
     //    let mut input: String = String::new();
     let mut last: String = String::new();
@@ -50,17 +51,18 @@ fn main() {
             .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
         print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
         match input.trim() {
+            "a" | "A" => print_index(),
             "0" | "q" | "Q" => break,
-            "1" => learn_variables(),
-            "2" => learn_functions(),
-            "3" => learn_conditions(),
-            "4" => learn_controls(),
-            "5" => learn_outputs(),
-            "6" => learn_ownership(),
-            "7" => learn_borrowing(),
-            "8" => learn_dereferencing(),
-            "9" => learn_struct(),
-            "10" => learn_implementation(),
+            "1" => learn_variables(true),
+            "2" => learn_functions(true),
+            "3" => learn_conditions(true),
+            "4" => learn_controls(true),
+            "5" => learn_outputs(true),
+            "6" => learn_ownership(true),
+            "7" => learn_borrowing(true),
+            "8" => learn_dereferencing(true),
+            "9" => learn_struct(true),
+            "10" => learn_implementation(true),
             "t" => match last.trim() {
                 "1" => test_variables(),
                 "2" => test_functions(),
@@ -79,4 +81,21 @@ fn main() {
         }
         last = input.clone();
     }
+}
+
+fn print_index() {
+    println!("{}", "LEARN RUST".red().bold());
+    println!("");
+    learn_variables(false);
+    learn_functions(false);
+    learn_conditions(false);
+    learn_controls(false);
+    learn_outputs(false);
+    learn_ownership(false);
+    learn_borrowing(false);
+    learn_dereferencing(false);
+    learn_struct(false);
+    learn_implementation(false);
+    println!("");
+    println!("Which module (1 to 10) ?");
 }

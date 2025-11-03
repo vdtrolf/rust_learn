@@ -1,27 +1,32 @@
 use colored::Colorize;
 
-pub fn learn_controls() {
-    println!("{}", "Controls (4)".red().bold().underline());
-    println!(
-        "{}{}",
-        "simple ".cyan().bold(),
-        ": loop {{ if b {{ break; }} }};"
-    );
-    println!(
-        "{}{}",
-        "loop   ".cyan().bold(),
-        ": let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true"
-    );
-    println!(
-        "{}{}",
-        "for    ".cyan().bold(),
-        ": let v = vec![]; for i in v {{...}};"
-    );
-    println!(
-        "{}{}",
-        "while  ".cyan().bold(),
-        ": let mut z=0; while z < 4 {{...}};"
-    );
+pub fn learn_controls(show_all: bool) {
+    let title = " 4-Controls";
+    if show_all {
+        println!("{}", title.trim().red().bold().underline());
+        println!(
+            "{}{}",
+            "simple ".cyan().bold(),
+            ": loop {{ if b {{ break; }} }};"
+        );
+        println!(
+            "{}{}",
+            "loop   ".cyan().bold(),
+            ": let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true"
+        );
+        println!(
+            "{}{}",
+            "for    ".cyan().bold(),
+            ": let v = vec![]; for i in v {{...}};"
+        );
+        println!(
+            "{}{}",
+            "while  ".cyan().bold(),
+            ": let mut z=0; while z < 4 {{...}};"
+        );
+    } else {
+        println!("{}", title);
+    }
 }
 
 pub fn test_controls() {

@@ -1,26 +1,33 @@
 use colored::Colorize;
 
-pub fn learn_implementation() {
-    println!("{}", "Implementation (10)".red().bold().underline());
-    println!("An implementation block allows to reference to a certain type, such as a struct.");
-    println!("A function in such a block is called a method and doesn't expect any argument (self is implicit)");
-    println!("  | stuct AStruct {{ f1:u8, f2:u8}};");
-    println!("  | impl AStruct {{ fn do_it(&self) {{ println!(\"{{self.f1}}\") }};}}; // impl block with a function inside");
-    println!("  | let A = AStruct {{ f1:1, f2:2 }}; A.do_it(); // doit will generate slef and will print 1");
-    println!("");
-    println!("It is possible to send arguments and even change the value of self");
-    println!("  | impl AStruct {{ fn do_more(&mut self, p1: u8) {{ self.f1 += p1 }}; }};");
-    println!("  | let A = AStruct {{ f1:1, f2:2 }}; A.do_more(2); // f1 has now the value 3");
-    println!("");
-    println!("A method can also take and transmit the ownership");
-    println!(
-        "  | impl AStruct {{ fn move_it(self) -> Self) {{ self }}; }}; // Self = type of self"
-    );
-    println!("  | let A = AStruct {{ f1:1, f2:2 }}; let B = A.move_it(); // B has now the ownership of the struct");
-    println!("");
-    println!("An associated function is a function part of the same implementation - can be called with Struct::");
-    println!("  | impl AStruct {{ ... fn raise_it(&mut self) {{ AStruct::do_more(self,10) }}; }}; // :: means associated");
-    println!("  | let A = AStruct {{ f1:1, f2:2 }}; A.raise_it(); // f1 has now the value 11");
+pub fn learn_implementation(show_all: bool) {
+    let title = "10-Implementation";
+    if show_all {
+        println!("{}", title.trim().red().bold().underline());
+        println!(
+            "An implementation block allows to reference to a certain type, such as a struct."
+        );
+        println!("A function in such a block is called a method and doesn't expect any argument (self is implicit)");
+        println!("  | stuct AStruct {{ f1:u8, f2:u8}};");
+        println!("  | impl AStruct {{ fn do_it(&self) {{ println!(\"{{self.f1}}\") }};}}; // impl block with a function inside");
+        println!("  | let A = AStruct {{ f1:1, f2:2 }}; A.do_it(); // doit will generate slef and will print 1");
+        println!("");
+        println!("It is possible to send arguments and even change the value of self");
+        println!("  | impl AStruct {{ fn do_more(&mut self, p1: u8) {{ self.f1 += p1 }}; }};");
+        println!("  | let A = AStruct {{ f1:1, f2:2 }}; A.do_more(2); // f1 has now the value 3");
+        println!("");
+        println!("A method can also take and transmit the ownership");
+        println!(
+            "  | impl AStruct {{ fn move_it(self) -> Self) {{ self }}; }}; // Self = type of self"
+        );
+        println!("  | let A = AStruct {{ f1:1, f2:2 }}; let B = A.move_it(); // B has now the ownership of the struct");
+        println!("");
+        println!("An associated function is a function part of the same implementation - can be called with Struct::");
+        println!("  | impl AStruct {{ ... fn raise_it(&mut self) {{ AStruct::do_more(self,10) }}; }}; // :: means associated");
+        println!("  | let A = AStruct {{ f1:1, f2:2 }}; A.raise_it(); // f1 has now the value 11");
+    } else {
+        println!("{}", title);
+    }
 }
 
 struct Car {
