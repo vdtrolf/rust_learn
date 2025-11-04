@@ -39,17 +39,16 @@ fn main() {
     print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
     print_index();
 
-    //    let mut input: String = String::new();
     let mut last: String = String::new();
-
-    // let n = vec!["0", "q", "Q"];
 
     loop {
         let mut input: String = String::new();
         io::stdin() // Get the standard input stream
             .read_line(&mut input) // The rea read_line function reads data until it reaches a '\n' character
             .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
-        print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+        if input.trim() != "t" {
+            print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+        }
         match input.trim() {
             "a" | "A" => print_index(),
             "0" | "q" | "Q" => break,
@@ -76,9 +75,10 @@ fn main() {
                 "10" => test_implementation(),
                 _ => println!("nope"),
             },
-
             _ => println!("No idea"),
         }
+        println!("");
+        println!("Which module (1 to 10) ?");
         last = input.clone();
     }
 }
