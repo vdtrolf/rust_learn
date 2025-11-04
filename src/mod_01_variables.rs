@@ -1,4 +1,5 @@
-use colored::Colorize;
+use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 1-Variables";
 static EXP_TEXT: [&str; 7] = [
@@ -13,33 +14,8 @@ static EXP_TEXT: [&str; 7] = [
 
 pub fn learn_variables(show_all: bool) {
     if show_all {
-        println!("{}", TITLE.trim().red().bold().underline());
-        for t in EXP_TEXT {
-            println!("{}", t);
-        }
-        // println!("{}{}", "static".cyan().bold(), " : AAA:f32 = 3.45");
-        // println!("{}{}", "const".cyan().bold(), "  : BBB:bool = true;");
-        // println!("{}{}", "var".cyan().bold(), "    : let (mut) (_)x:u8 = 11;");
-        // println!(
-        //     "{}{}",
-        //     "Types".cyan().bold(),
-        //     "  : u.. i.. f.. char bool \"\""
-        // );
-        // println!(
-        //     "{}{}",
-        //     "Array".cyan().bold(),
-        //     "  : let an_array:[u8,3]=[1,2,4]; | an_array[1];"
-        // );
-        // println!(
-        //     "{}{}",
-        //     "Vector".cyan().bold(),
-        //     " : let vec = vec![] or let vec = Vec<i16> = vec![-1,2,5,6] | vec[1];"
-        // );
-        // println!(
-        //     "{}{}",
-        //     "Tuples".cyan().bold(),
-        //     " : let tup = ('a',2,3.24) | tup.1 or let (x1,x2,x3) = tup"
-        // );
+        print_title(TITLE);
+        print_md(EXP_TEXT);
     } else {
         println!("{}", TITLE);
     }

@@ -1,17 +1,23 @@
-use colored::Colorize;
+use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_title;
+
+static TITLE: &str = " 2-Functions";
+static EXP_TEXT: [&str; 7] = [
+    "**simple** : a_fn(\"tata\",1);",
+    "       : fn a_fn(s: &str, x:u8) {{...}};",
+    "**param**  : let ret = a_fn(2);",
+    "       : fn a_fn(x:u8) -> u8 {{x*2}}; // last exp without ;",
+    "**multi**  : let (x1,x2) = a_fn(2);",
+    "       : fn a_fn(x:u8) -> (u8,u8) {{(x*2, x*4)}}; // any tuple",
+    "",
+];
 
 pub fn learn_functions(show_all: bool) {
-    let title = " 2-Functions";
     if show_all {
-        println!("{}", title.trim().red().bold().underline());
-        println!("{}{}", "simple".cyan().bold(), " : a_fn(\"tata\",1);");
-        println!("       : fn a_fn(s: &str, x:u8) {{...}};");
-        println!("{}{}", "param".cyan().bold(), "  : let ret = a_fn(2);");
-        println!("       : fn a_fn(x:u8) -> u8 {{x*2}}; // last exp without ;");
-        println!("{}{}", "multi".cyan().bold(), "  : let (x1,x2) = a_fn(2);");
-        println!("       : fn a_fn(x:u8) -> (u8,u8) {{(x*2, x*4)}}; // any tuple");
+        print_title(TITLE);
+        print_md(EXP_TEXT);
     } else {
-        println!("{}", title);
+        println!("{}", TITLE);
     }
 }
 
