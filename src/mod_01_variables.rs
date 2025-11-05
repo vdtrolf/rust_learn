@@ -24,7 +24,7 @@ static EXP_TEXT: [&str; 16] = [
 pub fn learn_variables(show_all: bool) {
     if show_all {
         print_title(TITLE);
-        print_md(&EXP_TEXT);
+        print_md(EXP_TEXT);
     } else {
         println!("{}", TITLE);
     }
