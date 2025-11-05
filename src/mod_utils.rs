@@ -1,6 +1,5 @@
-
 use colored::Colorize;
-pub fn print_md(txt_md: [&str; 7]) {
+pub fn print_md(txt_md: [&str; 16]) {
     for l in txt_md {
         println!("{}", l);
     }

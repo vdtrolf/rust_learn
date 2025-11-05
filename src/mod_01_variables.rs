@@ -2,7 +2,7 @@ use rust_learn::mod_utils::print_md;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 1-Variables";
-static EXP_TEXT: [&str; 7] = [
+static EXP_TEXT: [&str; 16] = [
     "**static** : AAA:f32 = 3.45;",
     "**const**  : BBB:bool = true;",
     "**var**    : let (mut) (_)x:u8 = 11;",
@@ -10,12 +10,21 @@ static EXP_TEXT: [&str; 7] = [
     "**Array**  : let an_array:[u8,3]=[1,2,4]; | an_array[1];",
     "**Vector** : let vec = vec![] or let vec = Vec<i16> = vec![-1,2,5,6] | vec[1];",
     "**Tuple**  : let tup = ('a',2,3.24) | tup.1 or let (x1,x2,x3) = tu;",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
 ];
 
 pub fn learn_variables(show_all: bool) {
     if show_all {
         print_title(TITLE);
-        print_md(EXP_TEXT);
+        print_md(&EXP_TEXT);
     } else {
         println!("{}", TITLE);
     }

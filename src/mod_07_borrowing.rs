@@ -1,26 +1,22 @@
-use colored::Colorize;
+use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_title;
+
+static TITLE: &str = " 7-Borrowing";
+static EXP_TEXT: [&str;16] =  [
+    "Borrowing means: referencing to a value without taking ownership for example when it is only necessary to read the data",
+    "It is more efficient than ownership, because values in the heap are not affected",
+    "One mutable reference (&mut) in the scope OR several immutable references (&) and References must be valid",
+    "Mutable  : let mut vec_1 = vec![1, 2, 3]; let ref1 = &mut vec_1;",
+    "Immutable: let vec_2 = vec![4, 5]; let ref2 = &vec_2; let ref3 = &vec_2;",
+    "","","","","","","","","","",""
+];
 
 pub fn learn_borrowing(show_all: bool) {
-    let title = " 7-Borrowing";
     if show_all {
-        println!("{}", title.trim().red().bold().underline());
-        println!("Borrowing means: referencing to a value without taking ownership for example when it is only necessary to read the data");
-        println!(
-            "It is more efficient than ownership, because values in the heap are not affected"
-        );
-        println!("\nOne mutable reference (&mut) in the scope OR several immutable references (&) and References must be valid");
-        println!(
-            "{}{}",
-            "Mutable  ".cyan().bold(),
-            ": let mut vec_1 = vec![1, 2, 3]; let ref1 = &mut vec_1;"
-        );
-        println!(
-            "{}{}",
-            "Immutable".cyan().bold(),
-            ": let vec_2 = vec![4, 5]; let ref2 = &vec_2; let ref3 = &vec_2;"
-        );
+        print_title(TITLE);
+        print_md(EXP_TEXT);
     } else {
-        println!("{}", title);
+        println!("{}", TITLE);
     }
 }
 

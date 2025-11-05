@@ -1,27 +1,33 @@
-use colored::Colorize;
+use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_title;
 use std::io;
 
+static TITLE: &str = " 4-Controls";
+static EXP_TEXT: [&str; 16] = [
+    "escape     : tab: \\t quote: \\\" endline: \\n carriage return: \\r",
+    "positional : println!(\"{{}} {{}}\",val1,val2);",
+    "named      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+];
+
 pub fn learn_outputs(show_all: bool) {
-    let title = " 5-Outputs";
     if show_all {
-        println!("{}", title.trim().red().bold().underline());
-        println!(
-            "{}{}",
-            "escape".cyan().bold(),
-            "     : tab: \\t quote: \\\" endline: \\n carriage return: \\r"
-        );
-        println!(
-            "{}{}",
-            "positional".cyan().bold(),
-            " : println!(\"{{}} {{}}\",val1,val2);"
-        );
-        println!(
-            "{}{}",
-            "named".cyan().bold(),
-            "      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);"
-        );
+        print_title(TITLE);
+        print_md(EXP_TEXT);
     } else {
-        println!("{}", title);
+        println!("{}", TITLE);
     }
 }
 

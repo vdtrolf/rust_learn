@@ -2,13 +2,22 @@ use rust_learn::mod_utils::print_md;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 2-Functions";
-static EXP_TEXT: [&str; 7] = [
+static EXP_TEXT: [&str; 16] = [
     "**simple** : a_fn(\"tata\",1);",
     "       : fn a_fn(s: &str, x:u8) {{...}};",
     "**param**  : let ret = a_fn(2);",
     "       : fn a_fn(x:u8) -> u8 {{x*2}}; // last exp without ;",
     "**multi**  : let (x1,x2) = a_fn(2);",
     "       : fn a_fn(x:u8) -> (u8,u8) {{(x*2, x*4)}}; // any tuple",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "",
 ];
 

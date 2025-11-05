@@ -1,4 +1,20 @@
-use colored::Colorize;
+use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_title;
+
+static TITLE: &str = " 9-Struct";
+static EXP_TEXT: [&str;16] =  [
+    "**Classical structs**: struct Astruct {{ f1 : String, f2 : u8}}",
+    "  | let (mut) A = Astruct {{ f1 : \"tata\".to_string(), f2 : 17 }}; println!(\"{{}}\",A.f2); => 17",
+    "  | A.2 = 21; // possible if A is mutable",
+    "  it is possible to reuse the fields of another instance with ..A at the end",
+    "  | let B = Astruct {{f1:val4, ..A}}",
+    "  it is also possible to initiate an instance with variables with the same name:",
+    "  | let f1:u8 = 1; let f2:u8 = 3; let A = Astruct {{f1, f2}};",
+    "**Tupple structs**: struct Tstruct (type,type,type);",
+    "  | let atupple = Tstruct(1,2,3;",
+    "**Unit structs** are used as markers: struct ABC;  ",
+    "","","","","",""
+];
 
 struct Animal {
     name: String,
@@ -20,37 +36,11 @@ struct Human {
 struct Point3d(i32, i32, i32);
 
 pub fn learn_struct(show_all: bool) {
-    let title = " 9-Struct";
     if show_all {
-        println!("{}", title.trim().red().bold().underline());
-        println!(
-            "{}{}",
-            "Classical structs".cyan().bold(),
-            ": struct Astruct {{ f1 : String, f2 : u8}}"
-        );
-        println!(
-        "  | let (mut) A = Astruct {{ f1 : \"tata\".to_string(), f2 : 17 }}; println!(\"{{}}\",A.f2); => 17"
-    );
-        println!("  | A.2 = 21; // possible if A is mutable");
-        println!("  it is possible to reuse the fields of another instance with ..A at the end");
-        println!("  | let B = Astruct {{f1:val4, ..A}}");
-        println!(
-            "  it is also possible to initiate an instance with variables with the same name:"
-        );
-        println!("  | let f1:u8 = 1; let f2:u8 = 3; let A = Astruct {{f1, f2}};");
-        println!(
-            "{}{}",
-            "Tupple structs".cyan().bold(),
-            ": struct Tstruct (type,type,type);"
-        );
-        println!("  | let atupple = Tstruct(1,2,3;");
-        println!(
-            "{}{}",
-            "Unit structs".cyan().bold(),
-            " are used as markers: struct ABC;  "
-        );
+        print_title(TITLE);
+        print_md(EXP_TEXT);
     } else {
-        println!("{}", title);
+        println!("{}", TITLE);
     }
 }
 
