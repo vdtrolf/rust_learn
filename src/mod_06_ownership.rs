@@ -3,7 +3,7 @@ use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 6-Ownership";
 static EXP_TEXT: [&str;16] = [
-    "The rules of ownership are:",
+    "**The rules of ownership are:**",
     "1. Each value has a variable that serves as its “owner.”",
     "2. A value can have only one owner at a time.",
     "3. If an owner goes out of scope, the value is cleaned up.",

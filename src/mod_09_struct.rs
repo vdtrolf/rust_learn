@@ -3,7 +3,7 @@ use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 9-Struct";
 static EXP_TEXT: [&str;16] =  [
-    "**Classical structs**: struct Astruct {{ f1 : String, f2 : u8}}",
+    "**Classical structs** : struct Astruct {{ f1 : String, f2 : u8}}",
     "  | let (mut) A = Astruct {{ f1 : \"tata\".to_string(), f2 : 17 }}; println!(\"{{}}\",A.f2); => 17",
     "  | A.2 = 21; // possible if A is mutable",
     "  it is possible to reuse the fields of another instance with ..A at the end",

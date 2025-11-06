@@ -4,9 +4,9 @@ use std::io;
 
 static TITLE: &str = " 4-Controls";
 static EXP_TEXT: [&str; 16] = [
-    "escape     : tab: \\t quote: \\\" endline: \\n carriage return: \\r",
-    "positional : println!(\"{{}} {{}}\",val1,val2);",
-    "named      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);",
+    "**escape**     : tab: \\t quote: \\\" endline: \\n carriage return: \\r",
+    "**positional** : println!(\"{{}} {{}}\",val1,val2);",
+    "**named**      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);",
     "",
     "",
     "",

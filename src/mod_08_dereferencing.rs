@@ -3,7 +3,7 @@ use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 8-Dereferencing";
 static EXP_TEXT: [&str; 16] = [
-    "Dereferencing means: accesing a variable value pointed by a reference or pointer",
+    "**Dereferencing means** : accesing a variable value pointed by a reference or pointer",
     "This is usefull after borrowing a a reference, and it is necessary to manipulate",
     "or access the underlying data. Works for stack variables, not heap values",
     "  let mut x = 42;",
