@@ -78,7 +78,7 @@ fn main() {
             _ => println!("No idea"),
         }
         println!("");
-        println!("Which module (1 to 10) ?");
+        println!("Which module (1 to 11) ?");
         last = input.clone();
     }
 }
