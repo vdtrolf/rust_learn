@@ -1,10 +1,15 @@
 use colored::Colorize;
 pub fn print_md(txt_md: [&str; 16]) {
     for l in txt_md {
-        let parts = l.split(" ");
-        let mut inb:bool = false;
-        let mut buf : String = ("").to_string();
-        for t in parts {
+        if l.starts_with("##") {
+          println!("{}",l[2..].trim().yellow().bold());
+        } else if l.starts_with("#") {
+          println!("{}",l[1..].trim().green().bold());
+        } else {
+          let parts = l.split(" ");
+          let mut inb:bool = false;
+          let mut buf : String = ("").to_string();
+          for t in parts {
             if t.starts_with("**") && t.ends_with("**") {
                 let mut s = t[2..].to_string();
                 s.pop();
@@ -26,6 +31,7 @@ pub fn print_md(txt_md: [&str; 16]) {
             } else {
                 print!("{} ", t);
             }
+          }
         }
         println!("");
     }
