@@ -21,7 +21,7 @@ pub fn print_md(txt_md: [&str; 16]) {
                     inb = true;
                     buf = (&t[2..]).to_string();
                 } else if t.ends_with("**") && inb {
-                    let mut newbuf = (buf.to_string() + " " + t);
+                    let mut newbuf = buf.to_string() + " " + t;
                     newbuf.pop();
                     newbuf.pop();
                     print!("{} ", newbuf.cyan().bold());
