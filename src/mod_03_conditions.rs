@@ -1,20 +1,17 @@
-use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_md_txt;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 3-Conditions";
-static EXP_TEXT: [&str;16] =  [
-    "if exp {{...}} else if exp {{...}} else {{...}}; | exp: x>1",
-    "let b:bool=true;if b {{...}};",
-    "match x {{1 => doit(), 2 => dotwice(), _ => doother(),}}; \\ watch out for the commas",
-    "mat9ch x {{ 2 | 4 | 6 => doit(), 0.0 .. 2.0 => doexcl(), 2.0 ..= 3.0 => doincl()}}, _ => iets(),}};",
-    "let b = match x {{ 1 | 3 => \"un\", 2 | 4 => \"ev\",}};",
-     "","","","","","","","","","",""
-];
+static EXP_TEXT: &str = "if exp {{...}} else if exp {{...}} else {{...}}; | exp: x>1
+let b:bool=true;if b {{...}};
+match x {{1 => doit(), 2 => dotwice(), _ => doother(),}}; \\ watch out for the commas
+mat9ch x {{ 2 | 4 | 6 => doit(), 0.0 .. 2.0 => doexcl(), 2.0 ..= 3.0 => doincl()}}, _ => iets(),}};
+let b = match x {{ 1 | 3 => \"un\", 2 | 4 => \"ev\",}};";
 
 pub fn learn_conditions(show_all: bool) {
     if show_all {
         print_title(TITLE);
-        print_md(EXP_TEXT);
+        print_md_txt(EXP_TEXT);
     } else {
         println!("{}", TITLE);
     }
