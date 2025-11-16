@@ -1,27 +1,25 @@
-use rust_learn::mod_utils::print_md;
+use rust_learn::mod_utils::print_md_txt;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 6-Ownership";
-static EXP_TEXT: [&str;16] = [
-    "**The rules of ownership are:**",
-    "1. Each value has a variable that serves as its “owner.”",
-    "2. A value can have only one owner at a time.",
-    "3. If an owner goes out of scope, the value is cleaned up.",
-    "",
-    "Variable definitions are in the stack, while the values are in the heap",
-    "So: let s1 = String::from(\"hello\"); let _s2 = s1; println(\"{{}}\",s1); // Error: s1 doesn't reference anything anymore",
-    "To preserve s1, it possible to clone it: let _s2 = s1.clone(); ",
-    "Since variables only lives in their scope, ownership is lost out of the scope",
-    "So: let s1 = String::from(\"hello\"); {{let _s2 = s1}}; println(\"{{}}\",_s2); // Error: _s2 only lives in the inner scope",
-    "For primitives (i,u,f,bool,char) the value is also in the stack",
-    "So: let x1: u8 = 2; let _x2 = x1; println(\"{{}}\",x1); // Works:  _x2 is a copy of x1",
-    "","","",""
-];
+static EXP_TEXT: &str =
+"**The rules of ownership are:**
+1. Each value has a variable that serves as its “owner.”
+2. A value can have only one owner at a time.
+3. If an owner goes out of scope, the value is cleaned up.
+
+Variable definitions are in the stack, while the values are in the heap
+So: let s1 = String::from(\"hello\"); let _s2 = s1; println(\"{{}}\",s1); // Error: s1 doesn't reference anything anymore
+To preserve s1, it possible to clone it: let _s2 = s1.clone();
+Since variables only lives in their scope, ownership is lost out of the scope
+So: let s1 = String::from(\"hello\"); {{let _s2 = s1}}; println(\"{{}}\",_s2); // Error: _s2 only lives in the inner scope
+For primitives (i,u,f,bool,char) the value is also in the stack
+So: let x1: u8 = 2; let _x2 = x1; println(\"{{}}\",x1); // Works:  _x2 is a copy of x1";
 
 pub fn learn_ownership(show_all: bool) {
     if show_all {
         print_title(TITLE);
-        print_md(EXP_TEXT);
+        print_md_txt(EXP_TEXT);
     } else {
         println!("{}", TITLE);
     }
