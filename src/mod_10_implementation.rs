@@ -4,21 +4,25 @@ use rust_learn::mod_utils::print_title;
 static TITLE: &str = "10-Implementation";
 static EXP_TEXT: &str =
 "An implementation block allows to reference to a certain type, such as a struct.
-    A function in such a block is called a method and doesn't expect any argument (self is implicit)
-  | stuct AStruct {{ f1:u8, f2:u8}};
-  | impl AStruct {{ fn do_it(&self) {{ println!(\"{{self.f1}}\") }};}}; // impl block with a function inside
-  | let A = AStruct {{ f1:1, f2:2 }}; A.do_it(); // doit will generate slef and will print 1
+A function in such a block is called a method and doesn't expect any argument (self is implicit)
+> stuct AStruct { f1:u8, f2:u8};
+> impl AStruct {
+>  fn do_it(&self) { println!(\"{self.f1}\") };
+> }; ^( impl block with a function inside )^
+> let A = AStruct { f1:1, f2:2 };
+> A.do_it(); ^( doit will generate self and will print 1 )^
 
 It is possible to send arguments and even change the value of self
-  | impl AStruct {{ fn do_more(&mut self, p1: u8) {{ self.f1 += p1 }}; }};
-  | let A = AStruct {{ f1:1, f2:2 }}; A.do_more(2); // f1 has now the value 3
+> impl AStruct { fn do_more(&mut self, p1: u8) { self.f1 += p1 }; };
+> let A = AStruct { f1:1, f2:2 }; A.do_more(2); ^( f1 has now the value 3 )^
 
-A method can also take and transmit the ownership
-  | impl AStruct {{ fn move_it(self) -> Self) {{ self }}; }}; // Self = type of self
-  | let A = AStruct {{ f1:1, f2:2 }}; let B = A.move_it(); // B has now the ownership of the struct
-An associated function is a function part of the same implementation - can be called with Struct::
-  | impl AStruct {{ ... fn raise_it(&mut self) {{ AStruct::do_more(self,10) }}; }}; // :: means associated
-  | let A = AStruct {{ f1:1, f2:2 }}; A.raise_it(); // f1 has now the value 11";
+**A method** can also take and transmit the ownership
+> impl AStruct { fn move_it(self) -> Self) { self }; }; ^( Self = type of self )^
+> let A = AStruct { f1:1, f2:2 }; let B = A.move_it(); ^( B has now the ownership of the struct )^
+
+**An associated function** is a function part of the same implementation - can be called with Struct::
+> impl AStruct { ... fn raise_it(&mut self) { AStruct::do_more(self,10) }; }; ^( :: means associated )^
+> let A = AStruct { f1:1, f2:2 }; A.raise_it(); ^( f1 has now the value 11 )^";
 
 pub fn learn_implementation(show_all: bool) {
     if show_all {

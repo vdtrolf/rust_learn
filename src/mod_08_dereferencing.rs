@@ -6,10 +6,11 @@ static EXP_TEXT: &str =
     "**Dereferencing means** : accesing a variable value pointed by a reference or pointer
 This is usefull after borrowing a a reference, and it is necessary to manipulate
 or access the underlying data. Works for stack variables, not heap values
-  let mut x = 42;
-  let ref1 = &mut x; // mutable reference
-  let deref_copy = *ref1; // creates a copy of the value
-  *ref1 = 13;  // x = 13 and deref_copy = 42";
+
+> let mut x = 42;
+> let ref1 = &mut x; ^( mutable reference )^
+> let deref_copy = *ref1; ^( creates a copy of the value )^
+> *ref1 = 13;  ^( x = 13 and deref_copy = 42 )^";
 
 pub fn learn_dereferencing(show_all: bool) {
     if show_all {

@@ -2,10 +2,24 @@ use rust_learn::mod_utils::print_md_txt;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 4-Controls";
-static EXP_TEXT: &str = "**simple** : loop {{ if b {{ break; }} }}
-**loop**   : let x = loop {{ let b=true; if b {{ break b; }}; }}; \\ x = true
-**for**    : let v = vec![]; for i in v {{...}};
-**while**  : let mut z=0; while z < 4 {{...}};";
+static EXP_TEXT: &str = "**simple**
+> loop { if b { break; } }
+
+**loop**
+> let x = loop {
+>   let b=true;
+>   if b {
+>     break b;
+>   };
+> }; ^( x = true )^
+
+**for**    :
+> let v = vec![];
+> for i in v {...};
+
+**while**  :
+> let mut z=0;
+> while z < 4 {...};";
 
 pub fn learn_controls(show_all: bool) {
     if show_all {

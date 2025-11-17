@@ -2,12 +2,17 @@ use rust_learn::mod_utils::print_md_txt;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 2-Functions";
-static EXP_TEXT: &str = "**simple** : a_fn(\"tata\",1);
-       : fn a_fn(s: &str, x:u8) {{...}};
-**param**  : let ret = a_fn(2);
-       : fn a_fn(x:u8) -> u8 {{x*2}}; // last exp without ;
-**multi**  : let (x1,x2) = a_fn(2);
-       : fn a_fn(x:u8) -> (u8,u8) {{(x*2, x*4)}}; // any tuple";
+static EXP_TEXT: &str = "**simple**
+> a_fn(\"tata\",1);
+> fn a_fn(s: &str, x:u8) {...doiets...};
+
+**param**
+> let ret = a_fn(2);
+> fn a_fn(x:u8) -> u8 {x*2}; ^(returns 4, last expresssion without ; )^
+
+**multi**
+> let (x1,x2) = a_fn(2);
+> fn a_fn(x:u8) -> (u8,u8) {(x*2, x*4)}; ^(can be any tuple)^";
 
 pub fn learn_functions(show_all: bool) {
     if show_all {
@@ -19,8 +24,7 @@ pub fn learn_functions(show_all: bool) {
 }
 
 pub fn test_functions() {
-    // Tuples
-    let x = 23;
+    let x: u8 = 1;
 
     // Calling a function
     test_fn("Hello function", x); // The type of the arguments must correspond

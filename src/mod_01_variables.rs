@@ -2,13 +2,18 @@ use rust_learn::mod_utils::print_md_txt;
 use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 1-Variables";
-static EXP_TEXT: &str = "**static** : AAA:f32 = 3.45;
-**const**  : BBB:bool = true;
-**var**    : let (mut) (_)x:u8 = 11;
-**Types**  : u.. i.. f.. char bool \"\"
-**Array**  : let an_array:[u8,3]=[1,2,4]; | an_array[1];
-**Vector** : let vec = vec![] or let vec = Vec<i16> = vec![-1,2,5,6] | vec[1];
-**Tuple**  : let tup = ('a',2,3.24) | tup.1 or let (x1,x2,x3) = tup;";
+static EXP_TEXT: &str = "**static** > AAA:f32 = 3.45;
+**const**  > BBB:bool = true;
+**var**    > let (mut) (_)x:u8 = 11; ^(mut = mutable, _ => not used)^
+**Types**  > u.. i.. f.. char bool \"\"
+**Array**  > let an_array:[u8,3]=[1,2,4];
+       > println!(\"{an_array[1]}\"); ^(=2)^
+**Vector** > let vec = vec![]
+       > let vec: Vec<i16> = vec![-1,2,5,6]
+       > println(\"{vec[1]}\"); ^(=2)^
+**Tuple**  > let tup = ('a',2,3.24)
+       > println(\"{tup.1}\"); ^(='a')^
+       > let (x1,x2,x3) = tup;";
 
 pub fn learn_variables(show_all: bool) {
     if show_all {
@@ -27,6 +32,8 @@ pub fn test_variables() {
     const MAX_VAL: u8 = 128;
     const ARRAY_POS: usize = 1;
 
+    println!("Static: '{PI_VALUE}', Const: '{MAX_VAL}'");
+
     // Variables
     let mut x: u8 = 11; // mut for mutable
     let y: u8 = 12;
@@ -37,31 +44,30 @@ pub fn test_variables() {
     let mut a_mut_string = String::from("tes"); // muttable string
     a_mut_string.push('t');
 
-    println!("Hello, world with {a_string}! and a mutable: {a_mut_string}");
+    println!("Char: '{a_char}' Strings: '{a_string}' and a mutable: '{a_mut_string}'");
 
     // Arrays
     let tst_array: [u8; 3] = [1, 2, 4];
     let tst_array2 = [0; 3];
 
-    println!("Hello, world {x} / {MAX_VAL} - {tst_array:?}!");
+    println!("Arrays: '{tst_array:?}' '{tst_array2:?}'");
+
     x -= tst_array[ARRAY_POS];
-    println!("And this {} {} {:?}", x, a_char, tst_array2);
+    println!("ARRAY_POS = {ARRAY_POS}, x = {x}");
 
     // Vectors
     let vec = vec![1, 2, 3];
     let vec_2: Vec<i16> = vec![-1, 2, 4];
     let elem = vec[1];
-    println!("And a vector: {:?} : {elem} : {}", vec, vec_2[0]);
+
+    println!("vec: {:?} elem: {elem} vec_2[0]: {}", vec, vec_2[0]);
 
     // Tuples
     let tupl = ("Test", 23, 11.0);
-    println!(
-        "This is in a tuple value and a static: {}, {PI_VALUE}",
-        tupl.1
-    );
+    println!("tupl.1 : {}", tupl.1);
 
     let (x1, x2, x3) = tupl;
-    println!("Tupl extract {}, {}, {}", x1, x2, x3);
+    println!("x1: {}, x2: {}, x3: {}", x1, x2, x3);
 
     // This is a code block
     let full_name = {

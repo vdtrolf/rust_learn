@@ -18,9 +18,26 @@ fn print_line(l: &str) {
     } else {
         let parts = l.split(" ");
         let mut inb: bool = false;
+        let mut ini: bool = false;
         let mut buf: String = ("").to_string();
         for t in parts {
-            if t.starts_with("**") && t.ends_with("**") {
+            if t.starts_with("^") && t.ends_with("^") {
+                let mut s = t[1..].to_string();
+                s.pop();
+                print!("{} ", s.cyan().italic());
+            } else if t.starts_with("^") {
+                ini = true;
+                buf = (&t[1..]).to_string();
+            } else if t.ends_with("^") && ini {
+                let mut newbuf = buf.to_string() + " " + t;
+                newbuf.pop();
+                print!("{} ", newbuf.cyan().italic());
+                buf = ("").to_string();
+                ini = false;
+            } else if ini {
+                let newbuf = buf.to_string() + " " + t;
+                buf = newbuf;
+            } else if t.starts_with("**") && t.ends_with("**") {
                 let mut s = t[2..].to_string();
                 s.pop();
                 s.pop();
@@ -47,5 +64,5 @@ fn print_line(l: &str) {
 }
 
 pub fn print_title(title: &str) {
-    println!("{}", title.trim().red().bold().underline());
+    println!("{}\n", title.trim().red().bold().underline());
 }

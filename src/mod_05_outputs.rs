@@ -4,8 +4,8 @@ use std::io;
 
 static TITLE: &str = " 5-Outputs";
 static EXP_TEXT: &str = "**escape**     : tab: \\t quote: \\\" endline: \\n carriage return: \\r
-**positional** : println!(\"{{}} {{}}\",val1,val2);
-**named**      : println!(\"{{arg1}} {{arg2}}\",arg1=val1,arg2=val2);";
+**positional** : println!(\"{} {}\",val1,val2);
+**named**      : println!(\"{arg1} {arg2}\",arg1=val1,arg2=val2);";
 
 pub fn learn_outputs(show_all: bool) {
     if show_all {

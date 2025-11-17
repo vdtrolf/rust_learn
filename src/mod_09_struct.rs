@@ -3,20 +3,24 @@ use rust_learn::mod_utils::print_title;
 
 static TITLE: &str = " 9-Struct";
 static EXP_TEXT: &str = "**Classical structs** :
-  struct Astruct {{ f1 : String, f2 : u8}}
-  | let (mut) A = Astruct {{ f1 : \"tata\".to_string(), f2 : 17 }}; println!(\"{{}}\",A.f2); => 17
-  | A.2 = 21; // possible if A is mutable
-  it is possible to reuse the fields of another instance with ..A at the end
-  | let B = Astruct {{f1:val4, ..A}}
-  it is also possible to initiate an instance with variables with the same name:
-  | let f1:u8 = 1; let f2:u8 = 3; let A = Astruct {{f1, f2}};
+> struct Astruct { f1 : String, f2 : u8}
+> let (mut) A = Astruct { f1 : \"tata\".to_string(), f2 : 17 };
+> println!(\"{}\",A.f2); ^( 17 )^
+> A.2 = 21; ^( possible if A is mutable )^
 
-**Tupple structs** :
-  struct Tstruct (type,type,type);
-  | let atupple = Tstruct(1,2,3);
+it is possible to reuse the fields of another instance with ..A at the end
+> let B = Astruct {f1:val4, ..A}
+
+it is also possible to initiate an instance with variables with the same name:
+> let f1:u8 = 1;
+> let f2:u8 = 3;
+> let A = Astruct {f1, f2};
+
+**Tupple structs** : struct Tstruct (type,type,type);
+> let atupple = Tstruct(1,2,3);
 
 **Unit structs** are used as markers:
-  struct ABC;";
+> struct ABC;";
 
 struct Animal {
     name: String,
