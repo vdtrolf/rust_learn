@@ -9,10 +9,12 @@ pub fn print_md_txt(txt_md: &str) {
 }
 
 fn print_line(l: &str) {
+    let inc: bool = l.starts_with(">");
+
     if l.starts_with("###") {
         println!("{}", l[3..].trim().on_red().bold());
     } else if l.starts_with("##") {
-        println!("{}", l[2..].trim().yellow().bold());
+        println!("{}", l[2..].trim().cyan().bold());
     } else if l.starts_with("#") {
         println!("{}", l[1..].trim().green().bold());
     } else {
@@ -49,14 +51,18 @@ fn print_line(l: &str) {
                 let mut newbuf = buf.to_string() + " " + t;
                 newbuf.pop();
                 newbuf.pop();
-                print!("{} ", newbuf.cyan().bold());
+                print!("{} ", newbuf.yellow().bold());
                 buf = ("").to_string();
                 inb = false;
             } else if inb {
                 let newbuf = buf.to_string() + " " + t;
                 buf = newbuf;
             } else {
-                print!("{} ", t);
+                if inc {
+                    print!("{} ", t.green());
+                } else {
+                    print!("{} ", t);
+                }
             }
         }
         print!("\n");
