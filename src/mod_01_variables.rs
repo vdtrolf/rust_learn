@@ -5,7 +5,7 @@ static TITLE: &str = " 1-Variables";
 static EXP_TEXT: &str = "**static** > AAA:f32 = 3.45;
 **const**  > BBB:bool = true;
 **var**    > let (mut) (_)x:u8 = 11; ^(mut = mutable, _ => not used)^
-**Types**  > u.. i.. f.. char bool \"\"
+**Types**  > u.. i.. f.. char bool \"\" b\"\" b''
 **Array**  > let an_array:[u8,3]=[1,2,4];
        > println!(\"{an_array[1]}\"); ^(=2)^
 **Vector** > let vec = vec![]

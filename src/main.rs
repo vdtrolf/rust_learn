@@ -3,6 +3,7 @@ use rust_learn::mod_utils::print_md_txt;
 use std::fs;
 use std::io;
 
+mod mod_00_types;
 mod mod_01_variables;
 mod mod_02_functions;
 mod mod_03_conditions;
@@ -14,6 +15,8 @@ mod mod_08_dereferencing;
 mod mod_09_struct;
 mod mod_10_implementation;
 
+use mod_00_types::learn_types;
+use mod_00_types::test_types;
 use mod_01_variables::learn_variables;
 use mod_01_variables::test_variables;
 use mod_02_functions::learn_functions;
@@ -55,7 +58,8 @@ fn main() {
         match input.trim() {
             "a" | "A" => print_index(),
             "m" | "M" => read_memory_md(),
-            "0" | "q" | "Q" => break,
+            "q" | "Q" => break,
+            "0" => learn_types(true),
             "1" => learn_variables(true),
             "2" => learn_functions(true),
             "3" => learn_conditions(true),
@@ -67,6 +71,7 @@ fn main() {
             "9" => learn_struct(true),
             "10" => learn_implementation(true),
             "t" | "T" => match last.trim() {
+                "0" => test_types(),
                 "1" => test_variables(),
                 "2" => test_functions(),
                 "3" => test_conditions(),
@@ -90,6 +95,7 @@ fn main() {
 fn print_index() {
     println!("{}", "LEARN RUST".red().bold());
     println!("");
+    learn_types(false);
     learn_variables(false);
     learn_functions(false);
     learn_conditions(false);
