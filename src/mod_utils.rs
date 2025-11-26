@@ -5,7 +5,6 @@ pub fn print_md_txt(txt_md: &str) {
     for l in parts {
         print_line(l);
     }
-    println!("");
 }
 
 fn print_line(l: &str) {

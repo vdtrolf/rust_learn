@@ -10,8 +10,9 @@ static EXP_TEXT: &str = "
 > char
 > bool
 > \"\"
-> b\"\"
-> b''";
+> b\"\" : ^bytestring^ b'' : ^byte char^
+> &str : ^(borrowed) sring slice ^
+> String::from(\"tata\") : ^String^";
 
 pub fn learn_types(show_all: bool) {
     if show_all {

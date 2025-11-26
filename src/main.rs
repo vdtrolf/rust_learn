@@ -1,7 +1,8 @@
 use colored::Colorize;
 use rust_learn::mod_utils::print_md_txt;
 use std::fs;
-use std::io;
+// use std::io;
+use terminal_prompt::Terminal;
 
 mod mod_00_types;
 mod mod_01_variables;
@@ -14,6 +15,7 @@ mod mod_07_borrowing;
 mod mod_08_dereferencing;
 mod mod_09_struct;
 mod mod_10_implementation;
+mod mod_11_enums;
 
 use mod_00_types::learn_types;
 use mod_00_types::test_types;
@@ -37,20 +39,25 @@ use mod_09_struct::learn_struct;
 use mod_09_struct::test_struct;
 use mod_10_implementation::learn_implementation;
 use mod_10_implementation::test_implementation;
+use mod_11_enums::learn_enums;
+use mod_11_enums::test_enums;
 
 // https://codezup.com/rust-memory-management-guide/
 
 fn main() {
-    print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+    // print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
     print_index();
+    let mut terminal = Terminal::open();
 
     let mut last: String = String::new();
 
     loop {
-        let mut input: String = String::new();
-        io::stdin() // Get the standard input stream
-            .read_line(&mut input) // The rea read_line function reads data until it reaches a '\n' character
-            .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
+        let mut input = terminal.prompt("Username: ");
+
+        // let mut input: String = String::new();
+        // io::stdin() // Get the standard input stream
+        //     .read_line(&mut input) // The rea read_line function reads data until it reaches a '\n' character
+        //     .expect("Unable to read Stdin"); // In case the read operation fails, it panics with the given message
         if input.trim() != "t" && input.trim() != "m" && input.trim() != "T" && input.trim() != "M"
         {
             print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
@@ -70,6 +77,7 @@ fn main() {
             "8" => learn_dereferencing(true),
             "9" => learn_struct(true),
             "10" => learn_implementation(true),
+            "11" => learn_enums(true),
             "t" | "T" => match last.trim() {
                 "0" => test_types(),
                 "1" => test_variables(),
@@ -82,12 +90,12 @@ fn main() {
                 "8" => test_dereferencing(),
                 "9" => test_struct(),
                 "10" => test_implementation(),
-                _ => println!("nope"),
+                "11" => test_enums(),
+                _ => (),
             },
             _ => println!("No idea"),
         }
-        println!("");
-        println!("Which module ?");
+        println!("--------- module 0..11, t, a or q ? ---------> ");
         last = input.clone();
     }
 }
@@ -106,6 +114,7 @@ fn print_index() {
     learn_dereferencing(false);
     learn_struct(false);
     learn_implementation(false);
+    learn_enums(false);
     println!("");
     println!("Which module (1 to 10) ?");
 }
