@@ -1,29 +1,31 @@
-use rust_learn::mod_utils::print_md_txt;
-use rust_learn::mod_utils::print_title;
+use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = " 3-Conditions";
-static EXP_TEXT: &str = "if exp {...} else if exp {...} else {...}; ^( 'exp' like 'x>1' )^
-
-let b:bool=true
-if b {...};
-
-match x {
-  1 => doit(),
-  2 => dotwice(),
-  _ => doother(), ^( _ is the default )^
-}; ^( watch out for the commas )^
-
-match x {
-  2 | 4 | 6 => doit(),
-  0.0 .. 2.0 => doexcl(), ^( excluding 0.0 and 2.0 )^
-  2.0 ..= 3.0 => doincl(), ^( including 3.0 )^
-  _ => iets(),
-};
-
-let b = match x {
-  1 | 3 => \"uneven\",
-  2 | 4 => \"even\",
-}; ^( if x=2 then b gets even)^ ";
+static EXP_TEXT: &str = "**1. if**
+> if exp {...} else if exp {...} else {...}; ^( 'exp' like 'x>1' )^
+**2. test on a boolean**
+> let b:bool=true;
+> if b { println!(\"I am in\")};
+**3. match on values**
+> let x: u8 = 3;
+> match x {
+>   1 => println!(\"It's a one\"),
+>   2 | 3 => println!(\"It's not a one\"),
+>   _ => (), ^( _ is the default, () means do nothing )^
+> }; ^( watch out for the commas )^
+**4. match on range**
+> let y = 2.5;
+> match y {
+>   0.0 .. 2.0 => println!(\"Between 0 and 2 (exclusive)\"), ^( excluding 0.0 and 2.0 )^
+>   2.0 ..= 3.0 => println!(\"Between 0 and 2 (including 3.0)\"), ^( including 3.0 )^
+>   _ => (),
+> };
+**5.match to return a value**
+> let b = match x {
+>   1 | 3 => \"uneven\",
+>   2 | 4 => \"even\",
+> }; ^( if x=2 then b gets even)^
+> println!(\"It is an {}\",b);";
 
 pub fn learn_conditions(show_all: bool) {
     if show_all {
@@ -47,33 +49,35 @@ pub fn test_conditions() {
             "no winner"
         }
     };
-    println!("And the winner of the 'if' test is: {}", a_str);
+    println!("1. And the winner of the 'if' test is: {}", a_str);
 
     // IF on a boolean
-    let b = true;
-    if !b {
-        println!("This will never come on the screen")
-    }
+    let b: bool = true;
+    if b {
+        println!("2. I am in")
+    };
 
     // MATCH
+    let x: u8 = 3;
+    match x {
+        1 => println!("3. It's a one"),
+        2 | 3 => println!("3. It's not a one"),
+        _ => (), // _ is the default, () means do nothing
+    }; // watch out for the commas
 
-    let y = 5.0;
-
-    let a_char = match y {
-        0.0..2.0 => 'b',  // from 0.0 to 2.0 (excl)
-        2.0 => 'e',       // exactly 2.0
-        2.0..3.0 => 'a',  // from 2.0 to 3.0 (excl)
-        3.0..=5.0 => 'f', // from 3.0 to 5.0 (incl) - was '...' before
-        _ => 'o',
+    // MATCH ON RANGE
+    let y = 2.5;
+    match y {
+        0.0..2.0 => println!("4. Between 0 and 2 (exclusive)"), // excluding 0.0 and 2.0
+        2.0..=3.0 => println!("4. Between 2 and 3 (including 3.0)"), // including 3.0
+        _ => (),
     };
-    println!("And the result of the first 'match' test is: {}", a_char);
 
-    let z = 12;
-    let b_str = match z {
-        2 | 4 | 6 | 8 => "even",
-        1 | 3 | 5 | 7 | 9 => "uneven",
-        0 => "zero",
+    // MATCH AS VALUE
+    let b = match x {
+        1 | 3 => "uneven",
+        2 | 4 => "even",
         _ => "unknown",
-    };
-    println!("And the result of the second 'match' test is: {}", b_str);
+    }; // if x=2 then b gets even
+    println!("5. It is an {}", b);
 }

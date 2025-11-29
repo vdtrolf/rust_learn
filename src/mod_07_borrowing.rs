@@ -1,5 +1,4 @@
-use rust_learn::mod_utils::print_md_txt;
-use rust_learn::mod_utils::print_title;
+use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = " 7-Borrowing";
 static EXP_TEXT: &str = "**Borrowing means** : referencing to a value without taking ownership

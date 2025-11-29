@@ -1,1 +1,16 @@
+pub mod mod_00_types;
+pub mod mod_01_variables;
+pub mod mod_02_functions;
+pub mod mod_03_conditions;
+pub mod mod_04_controls;
+pub mod mod_05_outputs;
+pub mod mod_06_ownership;
+pub mod mod_07_borrowing;
+pub mod mod_08_dereferencing;
+pub mod mod_09_struct;
+pub mod mod_10_implementation;
+pub mod mod_11_enums;
+pub mod mod_12_options;
+pub mod mod_13_result;
+pub mod mod_14_hashes;
 pub mod mod_utils;

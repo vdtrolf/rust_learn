@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 colored = "3"
-terminal-prompt = "0.2.3"
+inquire = "0.9.1"

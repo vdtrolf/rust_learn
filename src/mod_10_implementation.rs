@@ -1,5 +1,4 @@
-use rust_learn::mod_utils::print_md_txt;
-use rust_learn::mod_utils::print_title;
+use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = "10-Implementation";
 static EXP_TEXT: &str =
@@ -33,7 +32,7 @@ pub fn learn_implementation(show_all: bool) {
     }
 }
 
-struct Car { 
+struct Car {
     owner: String,
     price: u32,
 }
@@ -41,7 +40,7 @@ struct Car {
 impl Car {
     fn display_car_info(&self) {
         // car: &Car changed to &self
-        println!("--> Owner: {},Price: {}",self.owner, self.price);
+        println!("--> Owner: {},Price: {}", self.owner, self.price);
     }
     // It is possible to send arguments and even change the value of self
     fn raise_price(&mut self, dollars: u32) {
@@ -76,4 +75,3 @@ pub fn test_implementation() {
     println!("Made mutable after sell_car and auto raise");
     new_car.display_car_info();
 }
-

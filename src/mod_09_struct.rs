@@ -1,8 +1,7 @@
-use rust_learn::mod_utils::print_md_txt;
-use rust_learn::mod_utils::print_title;
+use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = " 9-Struct";
-static EXP_TEXT: &str = "**Classical structs** :
+static EXP_TEXT: &str = "1. **Classical structs** :
 > struct Animal {name: String, age: u8, legs: u8}
 > let mut zebra = Animal {
 >    name: String::from(\"Albert\"),

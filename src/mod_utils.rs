@@ -42,7 +42,7 @@ fn print_line(l: &str) {
                 let mut s = t[2..].to_string();
                 s.pop();
                 s.pop();
-                print!("{} ", s.cyan().bold());
+                print!("{} ", s.yellow().bold());
             } else if t.starts_with("**") {
                 inb = true;
                 buf = (&t[2..]).to_string();

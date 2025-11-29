@@ -1,25 +1,26 @@
-use rust_learn::mod_utils::print_md_txt;
-use rust_learn::mod_utils::print_title;
+use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = " 4-Controls";
-static EXP_TEXT: &str = "**simple**
+static EXP_TEXT: &str = "**1. simple**
 > loop { if b { break; } }
-
-**loop**
+**2. loop as value**
 > let x = loop {
 >   let b=true;
->   if b {
->     break b;
->   };
-> }; ^( x = true )^
-
-**for**    :
-> let v = vec![];
-> for i in v {...};
-
-**while**  :
-> let mut z=0;
-> while z < 4 {...};";
+>   if b { break b };
+> };
+> println!(\"2. x is now {}\", x); ^( x = true )^
+**3. for**
+> let a_vec = vec![2, 4, 8];
+> for i in a_vec {
+>   println!(\"3. next occurence in vector : {i}\");
+> }
+**4. while**
+> let mut z = 0;
+> while z < 4 {
+>     println!(\"4. z is now: {z}\");
+>     z += 1;
+> }
+> println!(\"4. z is finally: {z}\");";
 
 pub fn learn_controls(show_all: bool) {
     if show_all {
@@ -34,10 +35,10 @@ pub fn test_controls() {
     // SIMPLE LOOP
     let mut x: u8 = 1;
     loop {
-        println!("{} - In a outer loop", x);
+        println!("1. {} - In a outer loop", x);
         let mut y: u8 = 1;
         loop {
-            println!("  {}.{} - In a inner loop", x, y);
+            println!("1. {}.{} - In a inner loop", x, y);
             y += 1;
             if y > 2 {
                 break; // breaks the inner loop
@@ -50,26 +51,25 @@ pub fn test_controls() {
     }
 
     // LOOP AS AN EXPRESSION
-    let mut x = 1;
-    let result = loop {
-        x += 1;
-        if x > 3 {
-            break x;
+    let x = loop {
+        let b = true;
+        if b {
+            break b;
         };
     };
-    println!("It ran nearly {result} times!");
+    println!("2. x is now {}", x); //  x = true
 
     // ITERATING IN VALUES
     let a_vec = vec![2, 4, 8];
     for i in a_vec {
-        println!("Next occurence in vector : {i}");
+        println!("3. Next occurence in vector : {i}");
     }
 
     // ITERATIONS UNTIL A CONDITION IS MET
     let mut z = 0;
     while z < 4 {
-        println!("Z is now: {z}");
+        println!("4. z is now: {z}");
         z += 1;
     }
-    println!("Z is finally: {z}");
+    println!("4. z is finally: {z}");
 }

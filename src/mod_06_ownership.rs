@@ -1,28 +1,30 @@
-use rust_learn::mod_utils::print_md_txt;
-use rust_learn::mod_utils::print_title;
+use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = " 6-Ownership";
 static EXP_TEXT: &str = "**The rules of ownership are:**
-1. Each value has a variable that serves as its “owner.”
-2. A value can have only one owner at a time.
-3. If an owner goes out of scope, the value is cleaned up.
+- Each value has a variable that serves as its “owner.”
+- A value can have only one owner at a time.
+- If an owner goes out of scope, the value is cleaned up.
 
-**Variable definitions** are in the stack, while the values are in the heap
+1. **Variable definitions** are in the stack, while the values are in the heap
 > let s1 = String::from(\"hello\");
 > let _s2 = s1;
-> println(\"{}\",s1); ^( Error: s1 doesn't reference anything anymore )^
-
-To preserve s1, it possible to **clone** it: let _s2 = s1.clone();
-
-Since variables only lives in their scope, ownership is lost out of the scope
+> println(\"1. {}\",s1); ^( Error: s1 doesn't reference anything anymore )^
+2. To preserve s1, it possible to **clone** it:
+> let s1 = String::from(\"world\"); ^(possible since s1 has been discarded)^
+> let _s3 = s1.clone();
+> println!(\"2. s1 is now: {s1}\"); ^(works since s1 is still owner)^
+3. Since variables only lives in their scope, ownership is lost out of the scope
 > let s1 = String::from(\"hello\");
-> { let _s2 = s };
-> println(\"{}\",_s2); ^( Error: _s2 only lives in the inner scope )^
-
-For **primitives** (i,u,f,bool,char) the value is also in the stack
-> let x1: u8 = 2;
-> let _x2 = x1;
-> println(\"{}\",x1); ^( Works:  _x2 is a copy of x1 )^";
+> { let _s2 = s1 };
+> println(\"3. {}\",_s2); ^( Error: _s2 only lives in the inner scope )^
+4. For **primitives** (i,u,f,bool,char) the value is also in the stack, so there is no ownership
+> let x = 4;
+> let _y = x;
+> println!(\"4. x is : {x}\"); ^(works)^
+5. When a value is passed to a **function** it's  ownership is also transfered
+6. Unless the function returns a value, in which the ownership can 'be returned back'
+7. For **primitives** this all doen't apply since the function always receives a copy of the valus";
 
 pub fn learn_ownership(show_all: bool) {
     if show_all {
@@ -35,7 +37,7 @@ pub fn learn_ownership(show_all: bool) {
 
 pub fn test_ownership() {
     // The rules of ownership are:
-    // 1. Each value has a variable that serves as its “owner.”
+    // 1. Each value has a vprinprintln!("You entered: {}", input);tln!("You entered: {}", input);ariable that serves as its “owner.”
     // 2. A value can have only one owner at a time.
     // 3. If an owner goes out of scope, the value is cleaned up.
 
@@ -50,14 +52,14 @@ pub fn test_ownership() {
 
     // Stack             Heap
     // s1, length=5 -->  "Hello"
-    // _s2, length=? -->  ...
+    // _s2, length=? -->  ..println!("You entered: {}", input);.
     //
     // s1, length=5              (will be destroyed)
     // _s2, length=5 --> "Hello"
 
     let s1 = String::from("world"); // possible since s1 has been discarded
     let _s3 = s1.clone();
-    println!("s1 is now: {s1}"); // works since s1 is still owner
+    println!("2. s1 is now: {s1}"); // works since s1 is still owner
 
     // Stack             Heap
     // s1, length=5 -->  "Hello"
@@ -66,29 +68,14 @@ pub fn test_ownership() {
     // s1, length=5 --> "Hello"             (will not be destroyed)
     // _s2, length=5 --> "Hello"            (this is a clone)
 
+    // SCOPE
+
+    // Since variables only lives in their scope, ownership is lost out of the scope
     let s1 = String::from("hello");
-    let _s2 = s1;
-    // This would now result in an error:  println!("s1 is now: {s1}");
-    // Variable definition (s1, _s2) are in the stack, values ('Hello'),
-    // are in the heap
-
-    // Stack             Heap
-    // s1, length=5 -->  "Hello"
-    // _s2, length=? -->  ...
-    //
-    // s1, length=5              (will be destroyed)
-    // _s2, length=5 --> "Hello"
-
-    let s1 = String::from("world"); // possible since s1 has been discarded
-    let _s3 = s1.clone();
-    println!("s1 is now: {s1}"); // works since s1 is still owner
-
-    // Stack             Heap
-    // s1, length=5 -->  "Hello"
-    // _s2, length=? -->  ...
-    //
-    // s1, length=5 -->  "Hello"             (will not be destroyed)
-    // _s2, length=5 --> "Hello"            (this is a clone)
+    {
+        let _s2 = s1.clone();
+    };
+    // println(\"{}\",_s2); // Error: _s2 only lives in the inner scope
 
     // PRIMITIVES
     // ==========
@@ -98,7 +85,7 @@ pub fn test_ownership() {
 
     let x = 4;
     let _y = x;
-    println!("x is : {x}"); // works
+    println!("4. x is : {x}"); // works
 
     // Stack             Heap
     // x, val = 4        ...
@@ -106,17 +93,6 @@ pub fn test_ownership() {
     //
     // x, val = 4        ...     (will not be destroyed)
     // y, val = 4        ...     (this is a copy)
-
-    // SCOPE
-    // =====
-    // Ownership is also limited to the scope
-
-    let s1 = String::from("world"); // outer scope
-    {
-        // |
-        let _s2 = s1.clone(); // | inner scope
-    } // |
-      // println!("s2 is: {s2}"); // Gives an error, since _s2 only exist in the innner scope
 
     // FUNCTIONS
     // =========
@@ -128,18 +104,20 @@ pub fn test_ownership() {
 
     let vec_2 = vec![4, 5];
     takes_ownership(vec_2.clone());
-    println!("vec 2 is: {:?}", vec_2); // Works since vec_2 is still owner
+    println!("5. vec 2 is: {:?}", vec_2); // Works since vec_2 is still owner
 
+    // FUNCTION RETURNING OWNERSHIP
+    // ============================
     // In certain cases the function returns the ownership
 
     let vec_3 = gives_ownership();
-    println!("vec 3 is: {:?}", vec_3);
+    println!("6. vec 3 is: {:?}", vec_3);
 
     // Finally the function can receive and return the ownership
 
     let vec_4 = vec![10, 11, 12];
     let vec_5 = takes_and_gives_ownership(vec_4);
-    println!("vec 5 is: {:?}", vec_5);
+    println!("6. vec 5 is: {:?}", vec_5);
 
     // PRIMITIVE OWNERSHIP IN FUNCTIONS
     // ================================
@@ -148,11 +126,11 @@ pub fn test_ownership() {
 
     let x = 10;
     primitive_function(x);
-    println!("In main, x is: {x}");
+    println!("7. In main, x is: {x}");
 }
 
 fn takes_ownership(vec: Vec<i32>) {
-    println!("vec is: {:?}", vec);
+    println!("5. vec is: {:?}", vec);
 }
 
 fn gives_ownership() -> Vec<i32> {
@@ -165,5 +143,5 @@ fn takes_and_gives_ownership(mut vec: Vec<i32>) -> Vec<i32> {
 }
 
 fn primitive_function(y: i32) {
-    println!("In the function, y is: {y}");
+    println!("7. In the function, y is: {y}");
 }
