@@ -1,7 +1,7 @@
 use crate::mod_utils::{print_md_txt, print_title};
 
 static TITLE: &str = "13-Result";
-static EXP_TEXT: &str = "1. ";
+static EXP_TEXT: &str = "1. The result is for...";
 
 pub fn learn_result(show_all: bool) {
     if show_all {
@@ -13,5 +13,6 @@ pub fn learn_result(show_all: bool) {
 }
 
 pub fn test_result() {
-    println!("1. ");
+    println!("1. test with VIM");
 }
+

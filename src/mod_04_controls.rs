@@ -32,7 +32,9 @@ pub fn learn_controls(show_all: bool) {
 }
 
 pub fn test_controls() {
+    
     // SIMPLE LOOP
+    
     let mut x: u8 = 1;
     loop {
         println!("1. {} - In a outer loop", x);
